@@ -19,7 +19,8 @@ public class LinearSearchTest {
         Assert.assertEquals(expected, actual);
 
         expected = -1;
-        actual = search.linearSearch(array, 100);
+        actual = search.linearSearch(array, 1000);
         Assert.assertEquals(expected, actual);
     }
+
 }
