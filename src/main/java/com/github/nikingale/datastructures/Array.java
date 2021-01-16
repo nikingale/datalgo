@@ -5,10 +5,10 @@ package com.github.nikingale.datastructures;
  */
 
 public class Array {
+
     int[] array;
 
     public Array() {
-
     }
 
     public Array(int[] array) {
@@ -31,4 +31,5 @@ public class Array {
         }
         return -1;
     }
+
 }

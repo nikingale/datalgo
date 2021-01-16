@@ -9,13 +9,18 @@ import org.junit.Test;
 
 public class ArrayTest {
 
-    int[] testArray = {10, 20, 30};
-    Array testObject = new Array(testArray);
+    int[] array = {10, 20, 30};
+    Array test = new Array(array);
 
     @Test
     public void testSearchArray() {
         int expected = 0;
-        int actual = testObject.searchArray(10);
+        int actual = test.searchArray(10);
+        Assert.assertEquals(expected, actual);
+
+        expected = -1;
+        actual = test.searchArray(1000);
         Assert.assertEquals(expected, actual);
     }
+
 }
