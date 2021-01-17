@@ -5,6 +5,7 @@ package com.github.nikingale.datastructures.linkedlist;
  */
 
 public class Node {
+
     private int element;
     private Node next;
 
@@ -30,4 +31,5 @@ public class Node {
     public void setNext(Node next) {
         this.next = next;
     }
+
 }

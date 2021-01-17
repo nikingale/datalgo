@@ -27,4 +27,5 @@ public interface List {
     void printList();
 
     void emptyList();
+
 }
