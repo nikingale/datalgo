@@ -41,9 +41,6 @@ public class SinglyLinkedList implements List {
             if (index == 0) {
                 addFirst(element);
             }
-            else if (index == size()) {
-                addLast(element);
-            }
             else {
                 Node current = head, previous = head;
                 int count = 0;
@@ -62,25 +59,25 @@ public class SinglyLinkedList implements List {
     }
 
     public int removeFirst() {
-        if (head == null) {
-            return -1;
+        int element = -1;
+        if (head != null) {
+            element = head.getElement();
+            head = head.getNext();
         }
-        int element = head.getElement();
-        head = head.getNext();
         return element;
     }
 
     public int removeLast() {
-        if (head == null) {
-            return -1;
+        int element = -1;
+        if (head != null) {
+            Node current = head, previous = head;
+            while (current.getNext() != null) {
+                previous = current;
+                current = current.getNext();
+            }
+            element = current.getElement();
+            previous.setNext(null);
         }
-        Node current = head, previous = head;
-        while (current.getNext() != null) {
-            previous = current;
-            current = current.getNext();
-        }
-        int element = current.getElement();
-        previous.setNext(null);
         return element;
     }
 
@@ -89,9 +86,6 @@ public class SinglyLinkedList implements List {
         if (head != null) {
             if (index == 0) {
                 element = removeFirst();
-            }
-            else if (index == (size()-1)) {
-                element = removeLast();
             }
             else {
                 Node current = head, previous = head;
@@ -103,19 +97,16 @@ public class SinglyLinkedList implements List {
                 }
                 if (current != null) {
                     element = current.getElement();
+                    previous.setNext(current.getNext());
                 }
-                previous.setNext(current.getNext());
             }
         }
         return element;
     }
 
     public int get(int index) {
-        if (head == null) {
-            return -1;
-        }
-        else {
-            int element = -1;
+        int element = -1;
+        if (head != null) {
             if (index == 0) {
                 element =  head.getElement();
             }
@@ -130,8 +121,8 @@ public class SinglyLinkedList implements List {
                     element =  current.getElement();
                 }
             }
-            return element;
         }
+        return element;
     }
 
     public boolean isEmpty() {
@@ -142,14 +133,13 @@ public class SinglyLinkedList implements List {
     }
 
     public int size() {
-        if (head == null) {
-            return 0;
-        }
         int size = 0;
-        Node current = head;
-        while (current != null) {
-            size++;
-            current = current.getNext();
+        if (head != null) {
+            Node current = head;
+            while (current != null) {
+                size++;
+                current = current.getNext();
+            }
         }
         return size;
     }
