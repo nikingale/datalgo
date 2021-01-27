@@ -44,7 +44,7 @@ public class SinglyLinkedList implements List {
             else {
                 Node current = head, previous = head;
                 int count = 0;
-                while (count < index) {
+                while (count < index && current != null) {
                     previous = current;
                     current = current.getNext();
                     count++;
@@ -70,13 +70,18 @@ public class SinglyLinkedList implements List {
     public int removeLast() {
         int element = -1;
         if (head != null) {
-            Node current = head, previous = head;
+            Node current = head, previous = null;
             while (current.getNext() != null) {
                 previous = current;
                 current = current.getNext();
             }
             element = current.getElement();
-            previous.setNext(null);
+            if (previous == null) {
+                head = null;
+            }
+            else {
+                previous.setNext(null);
+            }
         }
         return element;
     }
@@ -90,7 +95,7 @@ public class SinglyLinkedList implements List {
             else {
                 Node current = head, previous = head;
                 int count = 0;
-                while ( (count < index) && (current != null) ) {
+                while (count < index && current != null) {
                     previous = current;
                     current = current.getNext();
                     count++;
@@ -113,7 +118,7 @@ public class SinglyLinkedList implements List {
             else {
                 int count = 0;
                 Node current = head;
-                while (count < index) {
+                while (count < index && current != null) {
                     current = current.getNext();
                     count++;
                 }
