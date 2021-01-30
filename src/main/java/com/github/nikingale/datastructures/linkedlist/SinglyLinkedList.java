@@ -111,7 +111,7 @@ public class SinglyLinkedList implements List {
 
     public int get(int index) {
         int element = -1;
-        if (head != null) {
+        if (head != null && index > -1) {
             if (index == 0) {
                 element =  head.getElement();
             }
@@ -156,7 +156,7 @@ public class SinglyLinkedList implements List {
             System.out.print(current.getElement() + " ");
             current = current.getNext();
         }
-        System.out.print("]");
+        System.out.println("]");
     }
 
     public void emptyList() {
