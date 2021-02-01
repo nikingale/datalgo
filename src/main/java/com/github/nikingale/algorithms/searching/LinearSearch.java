@@ -1,7 +1,7 @@
 package com.github.nikingale.algorithms.searching;
 
 /**
- * @author Nikhil Ingale 11-01-2021
+ * @author Nikhil Ingale 08-01-2021
  */
 
 public class LinearSearch {
