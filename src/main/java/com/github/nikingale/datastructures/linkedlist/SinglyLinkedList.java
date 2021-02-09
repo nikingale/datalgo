@@ -59,23 +59,25 @@ public class SinglyLinkedList implements List {
     }
 
     public int removeFirst() {
-        int element = -1;
+        int value = -1;
+
         if (head != null) {
-            element = head.getElement();
+            value = head.getElement();
             head = head.getNext();
         }
-        return element;
+        return value;
     }
 
     public int removeLast() {
-        int element = -1;
+        int value = -1;
+
         if (head != null) {
             Node current = head, previous = null;
             while (current.getNext() != null) {
                 previous = current;
                 current = current.getNext();
             }
-            element = current.getElement();
+            value = current.getElement();
             if (previous == null) {
                 head = null;
             }
@@ -83,14 +85,15 @@ public class SinglyLinkedList implements List {
                 previous.setNext(null);
             }
         }
-        return element;
+        return value;
     }
 
     public int remove(int index) {
-        int element = -1;
+        int value = -1;
+
         if (head != null) {
             if (index == 0) {
-                element = removeFirst();
+                value = removeFirst();
             }
             else {
                 Node current = head, previous = head;
@@ -101,19 +104,20 @@ public class SinglyLinkedList implements List {
                     count++;
                 }
                 if (current != null) {
-                    element = current.getElement();
+                    value = current.getElement();
                     previous.setNext(current.getNext());
                 }
             }
         }
-        return element;
+        return value;
     }
 
     public int get(int index) {
-        int element = -1;
+        int value = -1;
+
         if (head != null && index > -1) {
             if (index == 0) {
-                element =  head.getElement();
+                value = head.getElement();
             }
             else {
                 int count = 0;
@@ -123,11 +127,11 @@ public class SinglyLinkedList implements List {
                     count++;
                 }
                 if (current != null) {
-                    element =  current.getElement();
+                    value = current.getElement();
                 }
             }
         }
-        return element;
+        return value;
     }
 
     public boolean isEmpty() {
@@ -139,6 +143,7 @@ public class SinglyLinkedList implements List {
 
     public int size() {
         int size = 0;
+
         if (head != null) {
             Node current = head;
             while (current != null) {
