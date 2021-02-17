@@ -37,7 +37,7 @@ public class SinglyLinkedList implements List {
         if (head == null) {
             head = new Node(element);
         }
-        else {
+        else if (index > -1) {
             if (index == 0) {
                 addFirst(element);
             }
@@ -91,7 +91,7 @@ public class SinglyLinkedList implements List {
     public int remove(int index) {
         int value = -1;
 
-        if (head != null) {
+        if (head != null && index > -1) {
             if (index == 0) {
                 value = removeFirst();
             }
