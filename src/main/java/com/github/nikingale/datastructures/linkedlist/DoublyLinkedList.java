@@ -40,7 +40,7 @@ public class DoublyLinkedList implements List {
         if (head == null) {
             head = new DNode(element);
         }
-        else {
+        else if (index > -1) {
             if (index == 0) {
                 addFirst(element);
             }
@@ -68,10 +68,13 @@ public class DoublyLinkedList implements List {
 
         if (head != null) {
             value = head.getElement();
-            DNode node = head;
-            head = head.getNext();
-            node.setNext(null);
-            head.setPrevious(null);
+            if (head.getNext() != null) {
+                DNode node = head;
+                head = head.getNext();
+                node.setNext(null);
+                head.setPrevious(null);
+            }
+            else head = null;
         }
         return value;
     }
@@ -86,8 +89,11 @@ public class DoublyLinkedList implements List {
                 current = current.getNext();
             }
             value = current.getElement();
-            previous.setNext(null);
-            current.setPrevious(null);
+            if (current != head) {
+                previous.setNext(null);
+                current.setPrevious(null);
+            }
+            else head = null;
         }
         return value;
     }
@@ -95,7 +101,7 @@ public class DoublyLinkedList implements List {
     public int remove(int index) {
         int value = -1;
 
-        if (head != null) {
+        if (head != null && index > -1) {
             if (index == 0) {
                 value = removeFirst();
             }
