@@ -1,2 +1,2 @@
 # ds-algo
-Java based implementation of Data Structures and Algorithms
+Test Driven Development based implementation of Data Structures and Algorithms in Java
