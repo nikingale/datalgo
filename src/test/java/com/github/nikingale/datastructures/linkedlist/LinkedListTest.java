@@ -1,5 +1,9 @@
 package com.github.nikingale.datastructures.linkedlist;
 
+/**
+ * @author Nikhil Ingale 02-01-2021
+ */
+
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -11,9 +15,6 @@ import org.junit.runners.Parameterized.Parameters;
 
 import static org.junit.Assert.*;
 
-/**
- * @author Nikhil Ingale 02-01-2021
- */
 
 @RunWith(Parameterized.class)
 public class LinkedListTest {
@@ -37,7 +38,6 @@ public class LinkedListTest {
 
     @Test
     public void testAddFirst() {
-
         list.addFirst(10);
         assertEquals(1, list.size());
         assertEquals(10, list.get(0));
@@ -50,7 +50,6 @@ public class LinkedListTest {
 
     @Test
     public void testAddLast() {
-
         list.addLast(10);
         assertEquals(1, list.size());
         assertEquals(10, list.get(0));
