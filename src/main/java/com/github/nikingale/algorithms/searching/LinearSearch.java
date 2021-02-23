@@ -6,10 +6,10 @@ package com.github.nikingale.algorithms.searching;
 
 public class LinearSearch {
 
-    public int linearSearch(int[] array, int key) {
-        for (int index = 0; index < array.length; index++) {
-            if (array[index] == key) {
-                return index;
+    public int linearSearch(int[] input, int key) {
+        for (int i = 0; i < input.length; i++) {
+            if (input[i] == key) {
+                return i;
             }
         }
         return -1;
