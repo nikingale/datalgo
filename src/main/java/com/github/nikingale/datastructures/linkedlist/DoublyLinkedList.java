@@ -130,29 +130,21 @@ public class DoublyLinkedList implements List {
         int value = -1;
 
         if (head != null && index > -1) {
-            if (index == 0) {
-                value = head.getElement();
+            DNode current = head;
+            int count = 0;
+            while (count < index && current != null) {
+                current = current.getNext();
+                count++;
             }
-            else {
-                DNode current = head;
-                int count = 0;
-                while (count < index && current != null) {
-                    current = current.getNext();
-                    count++;
-                }
-                if (current != null) {
-                    value = current.getElement();
-                }
+            if (current != null) {
+                value = current.getElement();
             }
         }
         return value;
     }
 
     public boolean isEmpty() {
-        if (head == null) {
-            return true;
-        }
-        return false;
+        return head == null;
     }
 
     public int size() {
