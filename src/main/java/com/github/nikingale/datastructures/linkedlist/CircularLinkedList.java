@@ -78,10 +78,8 @@ public class CircularLinkedList implements List {
                 current = current.getNext();
             } while (current.getNext() != head);
             if (current != head) {
-                Node node = head;
                 head = head.getNext();
                 current.setNext(head);
-                node.setNext(null);
             }
             else head = null;
         }
@@ -100,7 +98,6 @@ public class CircularLinkedList implements List {
             value = current.getElement();
             if (current != head) {
                 previous.setNext(head);
-                current.setNext(null);
             }
             else head = null;
         }
@@ -125,7 +122,6 @@ public class CircularLinkedList implements List {
                 if (current != head) {
                     value = current.getElement();
                     previous.setNext(current.getNext());
-                    current.setNext(null);
                 }
             }
         }
