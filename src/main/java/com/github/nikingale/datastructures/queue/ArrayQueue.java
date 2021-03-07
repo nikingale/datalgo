@@ -10,7 +10,7 @@ public class ArrayQueue implements Queue {
     int front = -1, rear = -1, size = 0;
 
     public ArrayQueue() {
-        queue = new int[5];
+        queue = new int[3];
     }
 
     public ArrayQueue(int size) {
