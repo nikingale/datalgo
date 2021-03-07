@@ -40,9 +40,7 @@ public class LinkedStack implements Stack {
 
         if (top != null) {
             element = top.getElement();
-            Node node = top;
             top = top.getNext();
-            node.setNext(null);
             cap = cap - 1;
         }
         else {
