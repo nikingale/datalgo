@@ -32,7 +32,7 @@ public class StackTest {
     }
 
     @Before
-    public void setStack() {
+    public void setup() {
         stack.emptyStack();
     }
 
