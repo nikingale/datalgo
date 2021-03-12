@@ -8,18 +8,18 @@ import java.util.List;
 
 public interface Tree {
 
-    void preOrder(List list, TreeNode root);
+    List<Integer> preOrder();
 
-    void inOrder(List list, TreeNode root);
+    List<Integer> inOrder();
 
-    void postOrder(List list, TreeNode root);
+    List<Integer> postOrder();
 
-    void breadthFirstSearch(List list, TreeNode root);
+    List<Integer> breadthFirstTraversal();
 
     void add(int element);
 
     void remove(int element);
 
-    boolean search(int element, TreeNode root);
+    boolean search(int element);
 
 }

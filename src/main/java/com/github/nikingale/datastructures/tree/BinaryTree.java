@@ -1,7 +1,6 @@
 package com.github.nikingale.datastructures.tree;
 
 import java.util.*;
-import java.util.Queue;
 
 /**
  * @author Nikhil Ingale 05-01-2021
@@ -22,33 +21,52 @@ public class BinaryTree implements Tree {
         return root;
     }
 
-    public void preOrder(List treeList, TreeNode root) {
+    public List<Integer> preOrder() {
+        List<Integer> treeList = new LinkedList<>();
+        preOrderRecursive(this.root, treeList);
+        return treeList;
+    }
+
+    public void preOrderRecursive(TreeNode root, List<Integer> treeList) {
         if (root != null) {
             treeList.add(root.getElement());
-            preOrder(treeList, root.getLeft());
-            preOrder(treeList, root.getRight());
+            preOrderRecursive(root.getLeft(), treeList);
+            preOrderRecursive(root.getRight(), treeList);
         }
     }
 
-    public void inOrder(List treeList, TreeNode root) {
+    public List<Integer> inOrder() {
+        List<Integer> treeList = new LinkedList<>();
+        inOrderRecursive(this.root, treeList);
+        return treeList;
+    }
+
+    public void inOrderRecursive(TreeNode root, List<Integer> treeList) {
         if (root != null) {
-            inOrder(treeList, root.getLeft());
+            inOrderRecursive(root.getLeft(), treeList);
             treeList.add(root.getElement());
-            inOrder(treeList, root.getRight());
+            inOrderRecursive(root.getRight(), treeList);
         }
     }
 
-    public void postOrder(List treeList, TreeNode root) {
+    public List<Integer> postOrder() {
+        List<Integer> treeList = new LinkedList<>();
+        postOrderRecursive(this.root, treeList);
+        return treeList;
+    }
+
+    public void postOrderRecursive(TreeNode root, List<Integer> treeList) {
         if (root != null) {
-            postOrder(treeList, root.getLeft());
-            postOrder(treeList, root.getRight());
+            postOrderRecursive(root.getLeft(), treeList);
+            postOrderRecursive(root.getRight(), treeList);
             treeList.add(root.getElement());
         }
     }
 
-    public void breadthFirstSearch(List treeList, TreeNode root) {
+    public List<Integer> breadthFirstTraversal() {
+        List<Integer> treeList = new LinkedList<>();
         Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(root);
+        queue.add(this.root);
         while (!queue.isEmpty()) {
             TreeNode treeNode = queue.remove();
             treeList.add(treeNode.getElement());
@@ -59,16 +77,21 @@ public class BinaryTree implements Tree {
                 queue.add(treeNode.getRight());
             }
         }
+        return treeList;
     }
 
-    public boolean search(int element, TreeNode root) {
+    public boolean search(int element) {
+        return searchRecursive(element, this.root);
+    }
+
+    public boolean searchRecursive(int element, TreeNode root) {
         boolean result = false;
         if (root != null) {
             if (root.getElement() == element) {
                 return true;
             }
-            result = search(element, root.getLeft());
-            result = result || search(element, root.getRight());
+            result = searchRecursive(element, root.getLeft());
+            result = result || searchRecursive(element, root.getRight());
         }
         return result;
     }
@@ -102,7 +125,7 @@ public class BinaryTree implements Tree {
     }
 
     public void remove(int element) {
-        TreeNode target = null, last = null, prev = null;
+        TreeNode target = null, last = null, previous = null;
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
 
@@ -120,14 +143,14 @@ public class BinaryTree implements Tree {
             }
 
             if (current.getLeft() == null) {
-                last = prev;
+                last = previous;
                 break;
             }
             else if (current.getRight() == null) {
                 last = current;
                 break;
             }
-            prev = current;
+            previous = current;
         }
         if (last.getRight() != null) {
             target.setElement(last.getRight().getElement());
