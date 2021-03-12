@@ -8,32 +8,16 @@ public class LinkedQueue implements Queue {
 
     private Node front;
     private Node rear;
-    private int size;
-    private int cap = 0;
-
-    public LinkedQueue() {
-        this.size = 3;
-    }
-
-    public LinkedQueue(int size) {
-        this.size = size;
-    }
 
     public void enqueue(int element) {
-        if (cap < size) {
-            if (front == null) {
-                front = new Node(element);
-                rear = front;
-            }
-            else {
-                Node node = new Node(element);
-                rear.setNext(node);
-                rear = node;
-            }
-            cap = cap + 1;
+        if (front == null) {
+            front = new Node(element);
+            rear = front;
         }
         else {
-            System.out.println("Queue full");
+            Node node = new Node(element);
+            rear.setNext(node);
+            rear = node;
         }
     }
 
@@ -90,7 +74,6 @@ public class LinkedQueue implements Queue {
 
     public void emptyQueue() {
         front = rear = null;
-        cap = 0;
     }
 
 }
