@@ -125,7 +125,7 @@ public class BinaryTree implements Tree {
     }
 
     public void remove(int element) {
-        TreeNode target = null, last = null, previous = null;
+        TreeNode target = null, lastParent = null, previous = null;
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
 
@@ -142,23 +142,21 @@ public class BinaryTree implements Tree {
                 queue.add(current.getRight());
             }
 
-            if (current.getLeft() == null) {
-                last = previous;
-                break;
+            if (lastParent == null && current.getLeft() == null) {
+                lastParent = previous;
             }
-            else if (current.getRight() == null) {
-                last = current;
-                break;
+            else if (lastParent == null && current.getRight() == null) {
+                lastParent = current;
             }
             previous = current;
         }
-        if (last.getRight() != null) {
-            target.setElement(last.getRight().getElement());
-            last.setRight(null);
+        if (lastParent.getRight() != null) {
+            target.setElement(lastParent.getRight().getElement());
+            lastParent.setRight(null);
         }
         else {
-            target.setElement(last.getLeft().getElement());
-            last.setLeft(null);
+            target.setElement(lastParent.getLeft().getElement());
+            lastParent.setLeft(null);
         }
     }
 

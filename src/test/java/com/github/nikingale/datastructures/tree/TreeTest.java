@@ -84,6 +84,11 @@ public class TreeTest {
         List<Integer> expected = Arrays.asList(1, 2, 5, 4);
         List<Integer> actual = tree.breadthFirstTraversal();
         Assert.assertArrayEquals(expected.toArray(), actual.toArray());
+
+        tree.remove(4);
+        expected = Arrays.asList(1, 2, 5);
+        actual = tree.breadthFirstTraversal();
+        Assert.assertArrayEquals(expected.toArray(), actual.toArray());
     }
 
 }
