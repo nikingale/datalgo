@@ -27,12 +27,12 @@ public class QueueTest {
 
     @Parameters
     public static Collection<Queue> testQueues() {
-        Queue[] queues = {new ArrayQueue()};
+        Queue[] queues = {new ArrayQueue(), new LinkedQueue()};
         return Arrays.asList(queues);
     }
 
     @Before
-    public void setQueue() {
+    public void setup() {
         queue.emptyQueue();
     }
 
@@ -40,7 +40,6 @@ public class QueueTest {
     public void testEnqueue() {
         queue.enqueue(10);
         assertEquals(1, queue.size());
-        assertEquals(10, queue.front());
 
         queue.enqueue(20);
         queue.enqueue(30);
