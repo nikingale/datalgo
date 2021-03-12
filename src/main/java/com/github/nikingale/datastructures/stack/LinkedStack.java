@@ -7,32 +7,17 @@ package com.github.nikingale.datastructures.stack;
 public class LinkedStack implements Stack {
 
     private Node top;
-    private int size;
-    private int cap = 0;
-
-    public LinkedStack() {
-        this.size = 3;
-    }
-
-    public LinkedStack(int size) {
-        this.size = size;
-    }
 
     public boolean push(int element) {
-        if (cap < size) {
-            if (top == null) {
-                top = new Node(element);
-            }
-            else {
-                Node node = new Node(element);
-                node.setNext(top);
-                top = node;
-            }
-            cap = cap + 1;
-            return true;
+        if (top == null) {
+            top = new Node(element);
         }
-        System.out.println("Stack overflow");
-        return false;
+        else {
+            Node node = new Node(element);
+            node.setNext(top);
+            top = node;
+        }
+        return true;
     }
 
     public int pop() {
@@ -41,7 +26,6 @@ public class LinkedStack implements Stack {
         if (top != null) {
             element = top.getElement();
             top = top.getNext();
-            cap = cap - 1;
         }
         else {
             System.out.println("Stack is Empty");
@@ -88,7 +72,6 @@ public class LinkedStack implements Stack {
 
     public void emptyStack() {
         top = null;
-        cap = 0;
     }
 
 }
