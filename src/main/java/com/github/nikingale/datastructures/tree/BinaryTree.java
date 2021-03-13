@@ -8,7 +8,7 @@ import java.util.*;
 
 public class BinaryTree implements Tree {
 
-    private TreeNode root;
+    protected TreeNode root;
 
     public BinaryTree() {
     }
