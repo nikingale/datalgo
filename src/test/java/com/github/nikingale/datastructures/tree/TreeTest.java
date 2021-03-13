@@ -1,8 +1,8 @@
 package com.github.nikingale.datastructures.tree;
 
+import org.junit.Test;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Test;
 
 import java.util.*;
 
@@ -16,19 +16,19 @@ public class TreeTest {
 
     @Before
     public void setup() {
-        TreeNode treeNode1 = new TreeNode(1);
-        TreeNode treeNode2 = new TreeNode(2);
-        TreeNode treeNode3 = new TreeNode(3);
-        TreeNode treeNode4 = new TreeNode(4);
-        TreeNode treeNode5 = new TreeNode(5);
+        TreeNode node1 = new TreeNode(1);
+        TreeNode node2 = new TreeNode(2);
+        TreeNode node3 = new TreeNode(3);
+        TreeNode node4 = new TreeNode(4);
+        TreeNode node5 = new TreeNode(5);
 
-        treeNode1.setLeft(treeNode2);
-        treeNode1.setRight(treeNode3);
-        treeNode2.setLeft(treeNode4);
-        treeNode2.setRight(treeNode5);
+        node1.setLeft(node2);
+        node1.setRight(node3);
+        node2.setLeft(node4);
+        node2.setRight(node5);
 
-        root = treeNode1;
-        tree = new BinaryTree(treeNode1);
+        root = node1;
+        tree = new BinaryTree(node1);
     }
 
     @Test
