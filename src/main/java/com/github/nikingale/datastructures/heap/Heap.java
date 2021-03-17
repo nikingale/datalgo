@@ -1,4 +1,4 @@
-package com.github.nikingale.datastructures;
+package com.github.nikingale.datastructures.heap;
 
 import java.util.List;
 
