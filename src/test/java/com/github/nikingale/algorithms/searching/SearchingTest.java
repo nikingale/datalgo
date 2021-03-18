@@ -26,10 +26,30 @@ public class SearchingTest {
     @Test
     public void testBinarySearch() {
         BinarySearch search = new BinarySearch();
-        int actual = search.binarySearch(input, key, 0, input.length - 1);
+        int actual = search.binarySearch(input, key);
         Assert.assertEquals(expected, actual);
 
-        actual = search.binarySearch(input, 1000, 0, input.length - 1);
+        actual = search.binarySearch(input, 1000);
+        Assert.assertEquals(-1, actual);
+    }
+
+    @Test
+    public void testLinearSearchRecursive() {
+        LinearSearchRecursive search = new LinearSearchRecursive();
+        int actual = search.linearSearchRecursive(input, key, 0);
+        Assert.assertEquals(expected, actual);
+
+        actual = search.linearSearchRecursive(input, 1000, 0);
+        Assert.assertEquals(-1, actual);
+    }
+
+    @Test
+    public void testBinarySearchRecursive() {
+        BinarySearchRecursive search = new BinarySearchRecursive();
+        int actual = search.binarySearchRecursive(input, key, 0, input.length - 1);
+        Assert.assertEquals(expected, actual);
+
+        actual = search.binarySearchRecursive(input, 1000, 0, input.length - 1);
         Assert.assertEquals(-1, actual);
     }
 
