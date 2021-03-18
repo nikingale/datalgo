@@ -6,24 +6,24 @@ package com.github.nikingale.algorithms.searching;
 
 public class BinarySearch {
 
-    public int binarySearch(int[] input, int key, int beg, int end) {
+    public int binarySearch(int[] input, int key) {
+        int beg = 0;
+        int end = input.length - 1;
+        int mid;
 
-        if (beg > end) {
-            return -1;
-        }
+        while (beg <= end) {
+            mid = (beg + end) / 2;
 
-        int mid = (beg + end) / 2;
-
-        if (input[mid] == key) {
-            return mid;
+            if (key == input[mid]) {
+                return mid;
+            }
+            else if (key < input[mid]) {
+                end = mid - 1;
+            }
+            else {
+                beg = mid + 1;
+            }
         }
-        else if (input[mid] > key) {
-            return binarySearch(input, key, beg, mid - 1);
-        }
-        else if (input[mid] < key) {
-            return binarySearch(input, key, mid + 1, end);
-        }
-
         return -1;
     }
 
