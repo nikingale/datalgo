@@ -7,7 +7,7 @@ import org.junit.Test;
  * @author Nikhil Ingale 08-01-2021
  */
 
-public class SearchingTest {
+public class SearchTest {
 
     int[] input = {10, 20, 30, 40, 50, 60, 70, 80, 90};
     int key = 30;
@@ -24,22 +24,22 @@ public class SearchingTest {
     }
 
     @Test
-    public void testBinarySearch() {
-        BinarySearch search = new BinarySearch();
-        int actual = search.binarySearch(input, key);
-        Assert.assertEquals(expected, actual);
-
-        actual = search.binarySearch(input, 1000);
-        Assert.assertEquals(-1, actual);
-    }
-
-    @Test
     public void testLinearSearchRecursive() {
         LinearSearchRecursive search = new LinearSearchRecursive();
         int actual = search.linearSearchRecursive(input, key, 0);
         Assert.assertEquals(expected, actual);
 
         actual = search.linearSearchRecursive(input, 1000, 0);
+        Assert.assertEquals(-1, actual);
+    }
+
+    @Test
+    public void testBinarySearch() {
+        BinarySearch search = new BinarySearch();
+        int actual = search.binarySearch(input, key);
+        Assert.assertEquals(expected, actual);
+
+        actual = search.binarySearch(input, 1000);
         Assert.assertEquals(-1, actual);
     }
 
