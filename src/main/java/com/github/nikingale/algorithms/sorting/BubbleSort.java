@@ -6,23 +6,25 @@ package com.github.nikingale.algorithms.sorting;
 
 public class BubbleSort {
 
-    public int[] bubbleSort(int[] input) {
-        boolean didSwap = true;
+    public void bubbleSort(int[] input) {
+        boolean isSwap;
         int n = input.length;
 
-        while (didSwap && n > 0) {
-            didSwap = false;
+        while (n > 0) {
+            isSwap = false;
             for (int i = 0; i < n - 1; i++) {
                 if (input[i] > input[i + 1]) {
                     int temp = input[i];
                     input[i] = input[i + 1];
                     input[i + 1] = temp;
-                    didSwap = true;
+                    isSwap = true;
                 }
+            }
+            if (!isSwap) {
+                break;
             }
             n--;
         }
-        return input;
     }
 
 }
