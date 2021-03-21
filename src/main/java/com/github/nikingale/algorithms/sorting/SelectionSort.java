@@ -1,4 +1,4 @@
-    package com.github.nikingale.algorithms.sorting;
+package com.github.nikingale.algorithms.sorting;
 
 /**
  * @author Nikhil Ingale 12-01-2021
