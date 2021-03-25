@@ -38,29 +38,30 @@ public class MinHeap implements Heap {
 
     //To increase heap(array) capacity when full
     private void ensureCapacity() {
-        minHeap = Arrays.copyOf(minHeap, capacity * 2);
-        capacity = capacity * 2;
+        if (last == capacity - 1) {
+            minHeap = Arrays.copyOf(minHeap, capacity * 2);
+            capacity = capacity * 2;
+        }
+    }
+
+    private void swap(int index1, int index2) {
+        int temp = minHeap[index1];
+        minHeap[index1] = minHeap[index2];
+        minHeap[index2] = temp;
     }
 
     public void add(int element) {
-        if (last == capacity - 1) {
-            ensureCapacity();
-        }
+        ensureCapacity();
         minHeap[++last] = element;
         heapifyUp(last);
     }
 
     private void heapifyUp(int index) {
         int parent = (int) Math.floor((index - 1) / 2);
-        while (parent > 0) {
+        while (parent > -1 && minHeap[index] < minHeap[parent]) {
+            swap(index, parent);
+            index = parent;
             parent = (int) Math.floor((index - 1) / 2);
-            if (minHeap[index] < minHeap[parent]) {
-                int temp = minHeap[parent];
-                minHeap[parent] = minHeap[index];
-                minHeap[index] = temp;
-                index = parent;
-            }
-            else break;
         }
     }
 
@@ -73,6 +74,7 @@ public class MinHeap implements Heap {
                     break;
                 }
             }
+
             if (index == last) {
                 last--;
             }
@@ -99,9 +101,7 @@ public class MinHeap implements Heap {
             }
 
             if (smallest != index) {
-                int temp = minHeap[index];
-                minHeap[index] = minHeap[smallest];
-                minHeap[smallest] = temp;
+                swap(index, smallest);
                 index = smallest;
             }
             else break;
