@@ -16,6 +16,8 @@ public interface Heap {
 
     void remove(int element);
 
+    int peek();
+
     void emptyHeap();
 
 }
