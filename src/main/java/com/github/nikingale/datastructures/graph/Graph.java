@@ -8,6 +8,8 @@ import java.util.List;
 
 public interface Graph {
 
+    void addVertex();
+
     List<Integer> breadthFirstTraversal();
 
     List<Integer> deptFirstTraversal();
