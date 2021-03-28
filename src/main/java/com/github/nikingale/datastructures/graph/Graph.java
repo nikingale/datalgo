@@ -8,10 +8,16 @@ import java.util.List;
 
 public interface Graph {
 
-    void addVertex();
+    void addVertex(String label);
 
-    List<Integer> breadthFirstTraversal();
+    void removeVertex(String label);
 
-    List<Integer> deptFirstTraversal();
+    void addEdge(String label1, String label2);
+
+    void removeEdge(String label1, String label2);
+
+    List<String> breadthFirstTraversal();
+
+    List<String> deptFirstTraversal();
 
 }
