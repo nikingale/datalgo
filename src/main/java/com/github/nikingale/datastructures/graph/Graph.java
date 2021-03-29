@@ -16,8 +16,10 @@ public interface Graph {
 
     void removeEdge(String label1, String label2);
 
-    List<String> breadthFirstTraversal();
+    List<Vertex> getAdjacentVertices(String label);
 
-    List<String> deptFirstTraversal();
+    List<Vertex> breadthFirstTraversal();
+
+    List<Vertex> deptFirstTraversal();
 
 }
