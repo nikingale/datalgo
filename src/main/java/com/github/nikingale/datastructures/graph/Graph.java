@@ -1,5 +1,6 @@
 package com.github.nikingale.datastructures.graph;
 
+import java.util.Set;
 import java.util.List;
 
 /**
@@ -18,8 +19,8 @@ public interface Graph {
 
     List<Vertex> getAdjacentVertices(String label);
 
-    List<Vertex> breadthFirstTraversal();
+    Set<String> breadthFirstTraversal(String root);
 
-    List<Vertex> deptFirstTraversal();
+    Set<String> depthFirstTraversal(String root);
 
 }
