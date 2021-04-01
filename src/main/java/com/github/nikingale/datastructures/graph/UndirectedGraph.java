@@ -31,8 +31,16 @@ public class UndirectedGraph implements Graph {
     public void addEdge(String label1, String label2) {
         Vertex v1 = new Vertex(label1);
         Vertex v2 = new Vertex(label2);
-        graph.get(v1).add(v2);
-        graph.get(v2).add(v1);
+        try {
+            if (!graph.get(v1).contains(v2)) {
+                graph.get(v1).add(v2);
+            }
+            if (!graph.get(v2).contains(v1)) {
+                graph.get(v2).add(v1);
+            }
+        }
+        catch (NullPointerException ignored) {
+        }
     }
 
     public void removeEdge(String label1, String label2) {
@@ -63,10 +71,12 @@ public class UndirectedGraph implements Graph {
 
         while (!queue.isEmpty()) {
             String vertex = queue.poll();
-            for (Vertex v : getAdjacentVertices(vertex)) {
-                if (!visited.contains(v.getLabel())) {
-                    visited.add(v.getLabel());
-                    queue.add(v.getLabel());
+            if (getAdjacentVertices(vertex) != null) {
+                for (Vertex v : getAdjacentVertices(vertex)) {
+                    if (!visited.contains(v.getLabel())) {
+                        visited.add(v.getLabel());
+                        queue.add(v.getLabel());
+                    }
                 }
             }
         }
@@ -88,6 +98,54 @@ public class UndirectedGraph implements Graph {
             }
         }
         return visited;
+    }
+
+    class Vertex {
+
+        String label;
+
+        public Vertex(String label) {
+            this.label = label;
+        }
+
+        public String getLabel() {
+            return label;
+        }
+
+        @Override
+        public int hashCode() {
+            final int prime = 31;
+            int result = 1;
+            result = prime * result + getOuterType().hashCode();
+            result = prime * result + ((label == null) ? 0 : label.hashCode());
+            return result;
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            if (this == obj)
+                return true;
+            if (obj == null)
+                return false;
+            if (getClass() != obj.getClass())
+                return false;
+            Vertex other = (Vertex) obj;
+            if (!getOuterType().equals(other.getOuterType()))
+                return false;
+            if (label == null) {
+                return other.label == null;
+            }
+            else return label.equals(other.label);
+        }
+
+        @Override
+        public String toString() {
+            return label;
+        }
+
+        private UndirectedGraph getOuterType() {
+            return UndirectedGraph.this;
+        }
     }
 
 }
