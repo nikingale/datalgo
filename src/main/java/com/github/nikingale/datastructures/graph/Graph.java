@@ -17,7 +17,7 @@ public interface Graph {
 
     void removeEdge(String label1, String label2);
 
-    List<Vertex> getAdjacentVertices(String label);
+    List<UndirectedGraph.Vertex> getAdjacentVertices(String label);
 
     Set<String> breadthFirstTraversal(String root);
 
