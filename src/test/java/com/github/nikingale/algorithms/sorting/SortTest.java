@@ -1,8 +1,8 @@
 package com.github.nikingale.algorithms.sorting;
 
+import org.junit.Test;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Test;
 
 /**
  * @author Nikhil Ingale 10-01-2021
@@ -49,8 +49,8 @@ public class SortTest {
     @Test
     public void testQuickSort() {
         QuickSort sort = new QuickSort();
-        sort.quickSort(input);
-        Assert.assertArrayEquals(expected, input);
+        int[] actual = sort.quickSort(input);
+        Assert.assertArrayEquals(expected, actual);
     }
 
 }
