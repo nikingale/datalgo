@@ -13,3 +13,6 @@ Test-Driven Development based implementation of Data Structures and Algorithms i
 ## Algorithms
 * [Searching](https://github.com/nikingale/datalgo/tree/main/src/main/java/com/github/nikingale/algorithms/searching)
 * [Sorting](https://github.com/nikingale/datalgo/tree/main/src/main/java/com/github/nikingale/algorithms/sorting)
+
+## Tests
+* [Tests](https://github.com/nikingale/datalgo/tree/main/src/test/java/com/github/nikingale)
